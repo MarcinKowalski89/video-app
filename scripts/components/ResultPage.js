@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Pagination from './Pagination';
 
 export default class Header extends Component {
   getEmptyResults() {
@@ -11,9 +12,12 @@ export default class Header extends Component {
     const { data: { items } } = this.props;
 
     return (
-      <ul className="list-group">
-        {items.map((item) => <li className="list-group-item">{item.snippet.title}</li>)}
-      </ul>
+      <div>
+        <ul className="list-group">
+          {items.map((item, index) => <li className="list-group-item" key={index}>{item.snippet.title}</li>)}
+        </ul>
+        <Pagination onPageChange={this.props.handleOnPageChange.bind(this)} query={this.props.query} prevPageToken={this.props.data.prevPageToken} nextPageToken={this.props.data.nextPageToken} />
+      </div>
     )
   }
   render() {
