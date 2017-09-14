@@ -5,6 +5,7 @@ import Video from './Video';
 import Playlist from './Playlist';
 import Channel from './Channel';
 
+
 export default class Header extends Component {
   getEmptyResults() {
     return (
