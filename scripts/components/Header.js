@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class Header extends Component {
 
   onChange(e) {
-    if (e.key === 'Enter') {
+    if ((e.key === 'Enter')&&(!!e.target.value)) {
       this.props.handleOnChangeTitle(e.target.value)
     }
   }
