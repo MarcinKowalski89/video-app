@@ -11,7 +11,7 @@ export default class App extends Component {
   componentWillMount() {
     fetchBy();
     this.setState({
-      currentTitle: 'Video App',
+      currentTitle: config.TITLE,
       data: null
     });
   }
@@ -31,7 +31,7 @@ export default class App extends Component {
     return (
       <div className="container">
         <div className="row">
-          <Header title={this.state.currentTitle} handleOnChangeTitle={this.handleChange.bind(this)} />
+          <Header title={this.state.query ? 'Searching results for: ' + this.state.query : this.state.currentTitle} handleOnChangeTitle={this.handleChange.bind(this)} />
         </div>
         <div className="row">
           <ResultPage query={this.state.query} data={this.state.data} handleOnPageChange={this.handleChangePage.bind(this)}/>
